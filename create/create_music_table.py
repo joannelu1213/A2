@@ -1,3 +1,6 @@
+"""
+Task 2: Create 'Music' Table in DynamoDB
+"""
 import boto3
 from botocore.exceptions import ClientError
 
