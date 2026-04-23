@@ -22,7 +22,7 @@ This implementation includes:
 
 ```
 A2/
-├── setup/ # Scripts to create DynamoDB tables and S3 bucket
+├── create/ # Scripts to create DynamoDB tables and S3 bucket
 ├── load/ # Scripts to load data into DynamoDB and S3
 ├── delete/ # Scripts to delete/reset DynamoDB tables
 ├── data/ # Source dataset (JSON file)
@@ -119,13 +119,13 @@ Indexes :
 
 ### Step 1: Create Tables and Bucket
 
-Run the scripts in the `setup/` folder:
+Run the scripts in the `create/` folder:
 
 ```bash
-python setup/create_music_table.py
-python setup/create_login_table.py
-python setup/create_subscription_table.py
-python setup/create_s3_bucket.py
+python create/create_music_table.py
+python create/create_login_table.py
+python create/create_subscription_table.py
+python create/create_s3_bucket.py
 ```
 
 ---
