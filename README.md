@@ -24,9 +24,10 @@ This implementation includes:
 A2/
 ├── create/ # Scripts to create DynamoDB tables and S3 bucket
 ├── load/ # Scripts to load data into DynamoDB and S3
-├── delete/ # Scripts to delete/reset DynamoDB tables
+├── delete/ # Scripts to delete DynamoDB tables
 ├── data/ # Source dataset (JSON file)
-├── requirements.txt
+├── test/ # Simple test script for local verification of data loading and query behaviour
+├── requirements.txt 
 ├── .gitignore
 └── README.md
 ```
@@ -147,7 +148,7 @@ This will:
 - Upload images to S3
 
 
-## Cleanup Scripts (Optional)
+### Cleanup Scripts
 
 The `delete/` folder contains utility scripts to remove existing DynamoDB tables.
 
@@ -161,6 +162,21 @@ Example usage:
 ```bash
 python delete/delete_login_table.py
 python delete/delete_music_table.py
+```
+
+### Optional: Run Tests (Local Verification)
+
+The `tests/` folder contains simple scripts for local verification of the datasets.
+
+These can be used to:
+- check that datasets load correctly  
+- validate basic query behaviour  
+- ensure schema consistency  
+
+Example usage:
+
+```bash
+python tests/test_query.py
 ```
 
 ---
