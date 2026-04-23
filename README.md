@@ -22,28 +22,45 @@ This implementation includes:
 
 ```
 A2/
-├── setup/        # Scripts to create DynamoDB tables and S3 bucket
-├── load/         # Scripts to load data into DynamoDB and S3
-├── data/         # Source dataset (JSON file)
+├── setup/ # Scripts to create DynamoDB tables and S3 bucket
+├── load/ # Scripts to load data into DynamoDB and S3
+├── delete/ # Scripts to delete/reset DynamoDB tables
+├── data/ # Source dataset (JSON file)
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-##  Prerequisites
+## Prerequisites
 
 Before running the scripts, ensure you have:
 
 - Python 3.x installed
-- An AWS account
-- AWS CLI installed and configured
+- Access to AWS Learner Lab
+- AWS CLI installed locally
 
-To configure AWS locally:
+---
 
+## AWS Configuration (Learner Lab)
+
+This project uses **AWS Learner Lab temporary credentials**.
+
+1. Log in to AWS Learner Lab and start the lab session
+
+2. Locate your temporary AWS credentials (Access Key, Secret Key, Session Token)
+
+3. Open your credentials file locally (e.g., using the following command):
 ```bash
-aws configure
+nano ~/.aws/credentials 
 ```
+4. Update it with your Learner Lab credentials:
+[default]
+aws_access_key_id=YOUR_ACCESS_KEY
+aws_secret_access_key=YOUR_SECRET_KEY
+aws_session_token=YOUR_SESSION_TOKEN
+5. Save and exit
 
 ---
 
@@ -52,7 +69,7 @@ aws configure
 Install required Python packages:
 
 ```bash
-pip install boto3 requests
+pip install -r requirements.txt
 ```
 
 ---
@@ -129,8 +146,24 @@ This will:
 - Insert login records
 - Upload images to S3
 
----
 
+## Cleanup Scripts (Optional)
+
+The `delete/` folder contains utility scripts to remove existing DynamoDB tables.
+
+These scripts are useful when:
+- resetting the environment
+- updating schema design
+- reloading data without conflicts
+
+Example usage:
+
+```bash
+python delete/delete_login_table.py
+python delete/delete_music_table.py
+```
+
+---
 ## Design Considerations
 
 ### Schema Design
