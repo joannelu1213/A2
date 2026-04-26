@@ -22,13 +22,15 @@ This implementation includes:
 
 ```
 A2/
-├── create/ # Scripts to create DynamoDB tables and S3 bucket
-├── load/ # Scripts to load data into DynamoDB and S3
-├── delete/ # Scripts to delete DynamoDB tables
-├── data/ # Source dataset (JSON file)
-├── test/ # Simple test script for local verification of data loading and query behaviour
+├── create/             # Scripts to create DynamoDB tables and S3 bucket
+├── load/               # Scripts to load data into DynamoDB and S3
+├── delete/             # Scripts to delete DynamoDB tables
+├── data/               # Source dataset (JSON file)
+├── test/               # Simple test script for local verification of data loading and query behaviour
 ├── requirements.txt 
 ├── .gitignore
+├── 2026a2_songs.json   # Songs dataset
+├── eda.ipynb           # Notebook file for exploratory anaylisis of the raw songs dataset
 └── README.md
 ```
 
